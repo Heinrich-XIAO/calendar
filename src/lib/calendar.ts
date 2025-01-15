@@ -2,7 +2,7 @@
 export const DAYS_IN_WEEK = 5;
 export const WEEKS_IN_YEAR = 73;
 export const DAYS_IN_SEASON = 73;
-export const SEASONS = ['Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon'] as const;
+export const SEASONS = ['α', 'β', 'γ', 'δ', 'ε'] as const;
 export const WEEKDAYS = ['Onesday', 'Twosday', 'Threesday', 'Foursday', 'Fivesday'] as const;
 export const YEAR_ZERO_START = new Date('2023-12-20T00:00:00.000Z');
 
@@ -37,14 +37,14 @@ export function getCustomDate(date: Date = new Date()) {
   let seasonIndex = Math.floor(remainingDays / DAYS_IN_SEASON);
   const dayInSeason = (remainingDays % DAYS_IN_SEASON) + 1;
   
-  // Check if we're at or past Sigma day in a leap year
+  // Check if we're at or past Zeta day in a leap year
   if (isLeapYear(year) && remainingDays >= DAYS_IN_SEASON * 2) {
     if (remainingDays === DAYS_IN_SEASON * 2) {
       return {
         year,
-        season: 'Sigma',
+        season: 'zeta',
         dayInSeason: 1,
-        weekday: 'Sigma Day',
+        weekday: 'Zeta Day',
         isLeapDay: true
       };
     }
@@ -59,6 +59,7 @@ export function getCustomDate(date: Date = new Date()) {
     season: SEASONS[seasonIndex],
     dayInSeason,
     weekday: WEEKDAYS[weekdayIndex],
+    weekdayIndex: weekdayIndex,
     isLeapDay: false
   };
 }

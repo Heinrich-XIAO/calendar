@@ -32,9 +32,13 @@ function App() {
               second: '2-digit'
             })}
           </div>
+          <div className="text-2xl text-gray-700">
+            {currentDate.weekdayIndex}/{currentDate.season}/{currentDate.dayInSeason}/{currentDate.year}
+          </div>
+
           {currentDate.isLeapDay && (
             <div className="bg-indigo-100 text-indigo-800 p-3 rounded-lg text-center mt-4">
-              Today is Sigma Day!
+              Today is ζDay!
             </div>
           )}
         </div>
